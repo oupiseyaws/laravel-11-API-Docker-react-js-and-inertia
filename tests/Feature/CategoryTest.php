@@ -10,7 +10,7 @@ class CategoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function it_can_list_categories()
     {
         Category::factory()->count(3)->create();
@@ -23,7 +23,7 @@ class CategoryTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_store_a_category()
     {
         $data = Category::factory()->make()->toArray();
@@ -37,7 +37,7 @@ class CategoryTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_show_a_category()
     {
         $category = Category::factory()->create();
@@ -48,7 +48,7 @@ class CategoryTest extends TestCase
                 ->assertJsonPath('id', $category->id);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_update_a_category()
     {
         $category = Category::factory()->create();
@@ -60,7 +60,7 @@ class CategoryTest extends TestCase
             ->assertJsonPath('name', $data['name']);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_delete_a_category()
     {
         $category = Category::factory()->create();
