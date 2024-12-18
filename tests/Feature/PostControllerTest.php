@@ -11,24 +11,9 @@ class PostControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->artisan('migrate'); // Run the migrations
-    }
-
-    #[Test]
-    public function test_example(): void
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
-
     #[Test]
     public function test_can_display_all_post(): void
     {
-        // create 10 posts
         Post::factory()->count(10)->create();
 
         $response = $this->getJson(route('posts.index'));

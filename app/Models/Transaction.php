@@ -46,12 +46,12 @@ class Transaction extends Model
         $this->attributes['transaction_date'] = Carbon::createFromFormat('m/d/Y',$value )->format('Y-m-d');
     }
 
-    // protected static function booted()
-    // {
-    //     if(auth()->check()){
-    //         static::addGlobalScope('user_id', function($builder){
-    //             $builder->where('user_id', auth()->id());
-    //         });
-    //     }
-    // }
+    protected static function booted()
+    {
+        if(auth()->check()){
+            static::addGlobalScope('user_id', function($builder){
+                $builder->where('user_id', auth()->id());
+            });
+        }
+    }
 }
