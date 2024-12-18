@@ -20,3 +20,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set the working directory
 WORKDIR /var/www
+
+RUN echo 'alias pa="php artisan"' >> ~/.bashrc
+RUN echo 'alias p="php"' >> ~/.bashrc
+RUN echo 'alias c="clear"' >> ~/.bashrc
+RUN echo 'alias cc="php artisan cache:clear&&php artisan route:clear&&php artisan config:clear&&php artisan view:clear&&php artisan clear-compiled"' >> ~/.bashrc
+RUN source ~/.bashrc
