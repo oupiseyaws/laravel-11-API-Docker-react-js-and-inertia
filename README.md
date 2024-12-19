@@ -6,7 +6,7 @@
 docker-compose up -d app
 ```
 
-# Install composer for laravel
+# Install composer
 
 ```
 docker-compose exec app composer install
@@ -16,7 +16,7 @@ docker-compose exec app composer install
 # Setup database
 
 ```
-docker-compose exec app php artisan migrate:fresh --seed
+docker-compose exec app php artisan migrate:seeder
 ```
 
 # add config file .env
