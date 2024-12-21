@@ -16,7 +16,7 @@ docker-compose exec app composer install
 # Setup database
 
 ```
-docker-compose exec app php artisan migrate:seeder
+docker-compose exec app php artisan migrate:refresh --seed
 ```
 
 # add config file .env
