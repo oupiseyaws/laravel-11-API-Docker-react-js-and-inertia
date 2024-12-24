@@ -1,12 +1,12 @@
 services:
   app:
     build:
-      context: .
+      context: ./backend
       dockerfile: docker/php/Dockerfile
     container_name: laravel_11_api_react_app
     working_dir: /var/www
     volumes:
-      - ./:/var/www
+      - ./backend:/var/www
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - laravel
@@ -18,7 +18,7 @@ services:
     ports:
       - "8001:80"
     volumes:
-      - ./:/var/www
+      - ./backend:/var/www
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - app
