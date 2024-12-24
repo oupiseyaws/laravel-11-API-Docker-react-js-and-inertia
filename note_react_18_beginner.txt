@@ -1,0 +1,31 @@
+What you should know
+- HTML
+- CSS
+- Javascript
+
+source_code
+https://github.com/mosh-hamedani/react-course-part1
+
+
++ Createing a React APP
+- Create react APP (CRA)
+- Vite
+
+create new project
+```
+npm create vite@latest
+```
+frontend_ react_18_for_beginners
+
+
+3-Building Components (1h)
+
+    1- Building components
+    2- Rendering markup with JSX
+    3- Managing state
+    4- Passing input via props
+    5- Debugging react apps
+
+add bootstrap package
+```
+npm i bootstrap@latest

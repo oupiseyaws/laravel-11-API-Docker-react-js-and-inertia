@@ -22,7 +22,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN apt-get install -y vim
 
 # Set the working directory
-WORKDIR /var/www
+WORKDIR /var/www/backend
 
 RUN echo 'alias pa="php artisan"' >> ~/.bashrc && \
     echo 'alias p="php"' >> /root/.bashrc && \

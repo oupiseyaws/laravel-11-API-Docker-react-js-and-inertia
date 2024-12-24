@@ -1,0 +1,18 @@
+
+1.create react project template
+
+    npm create vite@latest frontend1 -- --template react
+
+2. add package
+
+    npm install -D tailwindcss postcss autoprefixer
+
+3. init tailwindcss
+
+    npm tailwindcss init -p
+
+4. add react-router-dom
+    npm install react-router-dom
+
+5. get fake data
+    https://jsonplaceholder.typicode.com
