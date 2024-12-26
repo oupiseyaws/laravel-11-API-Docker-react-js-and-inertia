@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     curl
 
 # Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs
 
 # Install PHP extensions
@@ -25,6 +25,8 @@ RUN apt-get install -y vim
 WORKDIR /var/www/backend
 
 RUN echo 'alias pa="php artisan"' >> ~/.bashrc && \
+    echo 'alias pat="php artisan test"' >> /root/.bashrc && \
+    echo 'alias par="php artisan route:list"' >> /root/.bashrc && \
     echo 'alias p="php"' >> /root/.bashrc && \
     echo 'alias c="clear"' >> /root/.bashrc && \
     echo 'alias cc="php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear && php artisan clear-compiled"' >> /root/.bashrc

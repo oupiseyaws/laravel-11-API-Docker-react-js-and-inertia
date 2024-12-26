@@ -9,19 +9,21 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
+        // web: __DIR__.'/../routes/web.php',
         api: __DIR__.'/../routes/api.php',
         apiPrefix: 'api/',
-        web: __DIR__.'/../routes/web.php'
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->renderable(function (NotFoundHttpException $e) {
-            // Log::error($e->getMessage());
-            return response()->json([
-                'message' => 'Record not found.'
-            ], 404);
+        $exceptions->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => 'Record not found.'
+                ], 404);
+            }
+            return null; // Let the default exception handler handle it
         });
     })
     ->create();

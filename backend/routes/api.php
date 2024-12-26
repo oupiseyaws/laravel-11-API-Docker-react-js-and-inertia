@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
 Route::group(['prefix' => '/tasks', 'as' => 'tasks.'], function () {
     Route::get('/', [TaskController::class, 'list']);
     Route::get('/{id}', [TaskController::class, 'get'])
@@ -25,6 +21,13 @@ Route::group(['prefix' => '/tasks', 'as' => 'tasks.'], function () {
         ->where('id', '[1-9][0-9]*');
     Route::put('/', [TaskController::class, 'reorder']);
 });
+
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+
+
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('categories', CategoryController::class);

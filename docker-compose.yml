@@ -2,12 +2,12 @@ services:
   app:
     build:
       context: ./backend
-      dockerfile: docker/php/Dockerfile
+      dockerfile: ../docker/php/Dockerfile
     container_name: laravel_11_api_react_app
     working_dir: /var/www
     volumes:
       - ./backend:/var/www
-      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ../docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - laravel
 
