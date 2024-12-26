@@ -7,6 +7,8 @@ use App\Models\User;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\PostSeeder;
 use Database\Seeders\TransactionSeeder;
+use Database\Seeders\ProjectsSeeder;
+use Database\Seeders\TasksSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +23,8 @@ class DatabaseSeeder extends Seeder
                 CategorySeeder::class,
                 TransactionSeeder::class,
                 PostSeeder::class,
+                ProjectsSeeder::class,
+                TasksSeeder::class,
 
             ]);
 
