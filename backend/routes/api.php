@@ -41,3 +41,4 @@ Route::post('/auth/register', [App\Http\Controllers\Api\AuthController::class, '
 Route::post('/auth/logout', [App\Http\Controllers\Api\AuthController::class, 'logout']);
 
 Route::apiResource('posts', PostController::class);
+Route::apiResource('projects', PostController::class);

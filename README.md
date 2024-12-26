@@ -6,6 +6,12 @@
 docker-compose up -d app
 ```
 
+# add config file .env
+
+```
+cp env-example .env
+```
+
 # Install composer
 
 ```
@@ -17,12 +23,6 @@ docker-compose exec app composer install
 
 ```
 docker-compose exec app php artisan migrate:refresh --seed
-```
-
-# add config file .env
-
-```
-cp env-example .env
 ```
 
 # generate key
@@ -43,7 +43,7 @@ docker-compose down && docker-compose up -d
 docker-compose run app bash
 ```
 
----
+#######################################
 
 # Step 1: Remove all containers
 
