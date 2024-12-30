@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
  * @OA\Info(title="My First API", version="0.1")
  */
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     // add swagger annotations
     /**
@@ -25,18 +25,8 @@ class CategoryController extends Controller
      */
     public function index(Request $request )
     {
-        Log::info('CategoryController@index');
-        Log::info('User: ' . auth()->user()->name);
-        Log::info(Category::get());
-        Log::info($request);
-
-        // get table name
-        Log::info(Category::getModel()->getTable());
-
-        // select data by db
-        Log::info(Category::select('id', 'name')->get());
-
-        return CategoryResource::collection(Category::get());
+        $token = CategoryResource::collection(Category::get());
+        return $this->sendResponse($token, 'Categories retrive successfully.');
     }
 
     /**
@@ -45,7 +35,9 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category = auth()->user()->categories()->create($request->validated());
-        return new CategoryResource($category);
+
+        $token = new CategoryResource($category);
+        return $this->sendResponse($token, 'Category store successfully.');
     }
 
     /**
@@ -53,7 +45,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return new CategoryResource($category);
+        $token = new CategoryResource($category);
+        return $this->sendResponse($token, 'Category show successfully.');
     }
 
     /**
@@ -61,7 +54,8 @@ class CategoryController extends Controller
      */
     public function update(StoreCategoryRequest $request, Category $category)
     {
-        return new CategoryResource(tap($category)->update($request->validated()));
+        $token = new CategoryResource(tap($category)->update($request->validated()));
+        return $this->sendResponse($token, 'Category update successfully.');
     }
 
     /**
@@ -70,6 +64,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return response()->noContent();
+        return $this->sendResponse('', 'Category destroy successfully.');
+        // $category->delete();
+        // return response()->noContent();
     }
 }

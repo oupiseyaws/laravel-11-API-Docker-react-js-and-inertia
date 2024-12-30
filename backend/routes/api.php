@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
+// login
+Route::post('/auth/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+Route::post('/auth/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
+Route::post('/auth/logout', [App\Http\Controllers\Api\AuthController::class, 'logout']);
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
 Route::group(['prefix' => '/tasks', 'as' => 'tasks.'], function () {
     Route::get('/', [TaskController::class, 'list']);
@@ -23,22 +31,13 @@ Route::group(['prefix' => '/tasks', 'as' => 'tasks.'], function () {
 });
 
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
-
-
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('transactions', TransactionController::class);
     Route::apiResource('users', UserController::class);
 });
 
-// login
-Route::post('/auth/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
-Route::post('/auth/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
-Route::post('/auth/logout', [App\Http\Controllers\Api\AuthController::class, 'logout']);
+
 
 Route::apiResource('posts', PostController::class);
 Route::apiResource('projects', PostController::class);

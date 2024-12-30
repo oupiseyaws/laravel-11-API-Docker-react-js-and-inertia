@@ -42,9 +42,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        Log::info('UserController@index');
-        Log::info('User: ' . auth()->user()->name);
-        Log::info(User::get());
         return User::all();
     }
 

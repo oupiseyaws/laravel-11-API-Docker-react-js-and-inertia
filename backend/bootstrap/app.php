@@ -17,13 +17,45 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->renderable(function (NotFoundHttpException $e, $request) {
+
+        // RouteNotFoundException
+        $exceptions->renderable(function (\Symfony\Component\Routing\Exception\RouteNotFoundException $e, $request) {
             if ($request->is('api/*')) {
-                return response()->json([
-                    'message' => 'Record not found.'
-                ], 404);
+                $response = [
+                    'success' => false,
+                    'data'    => '',
+                    'message' => 'No authorization.',
+                ];
+                return response()->json($response, 401);
             }
             return null; // Let the default exception handler handle it
         });
+
+        $exceptions->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->is('api/*')) {
+                $response = [
+                    'success' => false,
+                    'data'    => '',
+                    'message' => 'Record not found.',
+                ];
+                return response()->json($response, 404);
+            }
+            return null; // Let the default exception handler handle it
+        });
+
+        // UniqueConstraintViolationException
+        $exceptions->renderable(function (\Illuminate\Database\QueryException $e, $request) {
+            if ($e->errorInfo[1] === 1062) {
+                $response = [
+                    'success' => false,
+                    'data'    => '',
+                    'message' => 'Duplicate entry.',
+                ];
+
+                return response()->json($response, 409);
+            }
+            return null; // Let the default exception handler handle it
+        });
+
     })
     ->create();

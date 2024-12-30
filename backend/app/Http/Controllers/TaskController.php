@@ -6,8 +6,8 @@ use App\Http\Requests\Task\CreateTaskRequest;
 use App\Http\Requests\Task\ListTasksRequest;
 use App\Http\Requests\Task\ReorderTasksRequest;
 use App\Http\Requests\Task\UpdateTaskRequest;
-use App\Services\ProjectService;
-use App\Services\TaskService;
+use App\Http\Services\ProjectService;
+use App\Http\Services\TaskService;
 use Illuminate\Http\JsonResponse;
 
 class TaskController extends Controller
