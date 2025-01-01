@@ -1,0 +1,34 @@
+ 1 - Prerequisites
+    + Basic of Typescrip
+    + Building Components
+    + Styling Components
+    + Manging Components State
+    + Calling backend Service
+
+2 - What You'll Learn
+    1/ React Query
+        - Caching
+        - Automatic retry
+        - Automatic refresh
+        - Paginated Queries
+        - Infinite Queries
+
+    2/ Global State Management
+        - Reducer
+        - Context
+        - Providers
+        - Zustand
+    3/ Routing with React Router
+
+PART 1 : Queries data 
+    - Fetch data
+    - Handle errors
+    - Implements pagination
+    - Implements inifinte Queries
+    - Debug Queries with react Query tools
+
+PART 2 :  Mutating data
+    - Handle CRUD operations
+    - Implements optimistic updates
+    - Create custom hooks
+    - Create reusable services
