@@ -26,7 +26,7 @@ class CategoryController extends BaseController
     public function index(Request $request )
     {
         $token = CategoryResource::collection(Category::get());
-        return $this->sendResponse($token, 'Categories retrive successfully.');
+        return $this->sendResponse($request,$token, 'Categories retrive successfully.');
     }
 
     /**
@@ -37,7 +37,7 @@ class CategoryController extends BaseController
         $category = auth()->user()->categories()->create($request->validated());
 
         $token = new CategoryResource($category);
-        return $this->sendResponse($token, 'Category store successfully.');
+        return $this->sendResponse($request,$request,$token, 'Category store successfully.');
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoryController extends BaseController
     public function show(Category $category)
     {
         $token = new CategoryResource($category);
-        return $this->sendResponse($token, 'Category show successfully.');
+        return $this->sendResponse($request,$token, 'Category show successfully.');
     }
 
     /**
@@ -55,7 +55,7 @@ class CategoryController extends BaseController
     public function update(StoreCategoryRequest $request, Category $category)
     {
         $token = new CategoryResource(tap($category)->update($request->validated()));
-        return $this->sendResponse($token, 'Category update successfully.');
+        return $this->sendResponse($request,$token, 'Category update successfully.');
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends BaseController
     public function destroy(Category $category)
     {
         $category->delete();
-        return $this->sendResponse('', 'Category destroy successfully.');
+        return $this->sendResponse($request,'', 'Category destroy successfully.');
         // $category->delete();
         // return response()->noContent();
     }

@@ -20,7 +20,7 @@
         - Zustand
     3/ Routing with React Router
 
-PART 1 : Queries data 
+PART 1 : Queries data
     - Fetch data
     - Handle errors
     - Implements pagination
@@ -32,3 +32,20 @@ PART 2 :  Mutating data
     - Implements optimistic updates
     - Create custom hooks
     - Create reusable services
+
+* Caching : The process of storing data in a place where it can be accessed more quickly and Efficiency in the future.
+* Problem:
+    - No request cancellation
+    - No separation of concerns
+    - No retries
+    - No automatic refresh
+    - No caching
+* React Query: A powerful library for managing data fetching and caching in react application.
+
+* Install react-query : npm i @tanstack/react-query@latest
+* Install react-query tool : npm i @tanstack/react-query-devtools@latest
+
+* Auto refresh
+    - When the network is reconnected
+    - When a Component is mounted
+    - When the window is refocused

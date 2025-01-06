@@ -37,7 +37,7 @@ class AuthController extends BaseController
 
         $token = $user->createToken($request->device_name)->plainTextToken;
 
-        return $this->sendResponse($token, 'User register successfully.');
+        return $this->sendResponse($request,$token, 'User register successfully.');
     }
 
     public function login(Request $request)
@@ -56,7 +56,7 @@ class AuthController extends BaseController
             ]);
         }
         $token = $user->createToken($request->device_name)->plainTextToken;
-        return $this->sendResponse($token, 'User login successfully.');
+        return $this->sendResponse($request,$token, 'User login successfully.');
     }
 
 
@@ -67,6 +67,6 @@ class AuthController extends BaseController
             $user->tokens()->delete();
         }
 
-        return $this->sendResponse('', 'User logout successfully.');
+        return $this->sendResponse($request,'', 'User logout successfully.');
     }
 }

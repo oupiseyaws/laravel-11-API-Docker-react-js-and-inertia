@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
+use App\Models\ApiRequest;
+use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
     /**
-     * success response method.
+ * success response method.
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendResponse($result, $message)
+    public function sendResponse(Request $request,$result, $message)
     {
-        $response = [
-            'success' => true,
-            'data'    => $result,
-            'message' => $message,
-        ];
+        // $response = [
+        //     'success' => true,
+        //     'data'    => $result,
+        //     'message' => $message,
+        // ];
 
-        return response()->json($response, 200);
+        // save to api_requests table
+        ApiRequest::Add($request,$result);
+
+        return response()->json($result, 200);
     }
 
     /**
@@ -38,6 +42,9 @@ class BaseController extends Controller
         if(!empty($errorMessages)){
             $response['data'] = $errorMessages;
         }
+
+         // save to api_requests table
+         ApiRequest::Add($request);
 
         return response()->json($response, $code);
     }

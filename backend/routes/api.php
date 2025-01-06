@@ -37,7 +37,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('users', UserController::class);
 });
 
-
-
 Route::apiResource('posts', PostController::class);
 Route::apiResource('projects', PostController::class);

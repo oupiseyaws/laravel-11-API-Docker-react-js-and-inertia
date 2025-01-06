@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\ApiRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -20,12 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
 
         // RouteNotFoundException
         $exceptions->renderable(function (\Symfony\Component\Routing\Exception\RouteNotFoundException $e, $request) {
+
             if ($request->is('api/*')) {
-                $response = [
-                    'success' => false,
-                    'data'    => '',
-                    'message' => 'No authorization.',
-                ];
+                ApiRequest::Add($request);
                 return response()->json($response, 401);
             }
             return null; // Let the default exception handler handle it
@@ -33,12 +32,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $exceptions->renderable(function (NotFoundHttpException $e, $request) {
             if ($request->is('api/*')) {
-                $response = [
-                    'success' => false,
-                    'data'    => '',
-                    'message' => 'Record not found.',
-                ];
-                return response()->json($response, 404);
+                ApiRequest::Add($request);
+                return response()->json([], 404);
             }
             return null; // Let the default exception handler handle it
         });
@@ -46,12 +41,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // UniqueConstraintViolationException
         $exceptions->renderable(function (\Illuminate\Database\QueryException $e, $request) {
             if ($e->errorInfo[1] === 1062) {
-                $response = [
-                    'success' => false,
-                    'data'    => '',
-                    'message' => 'Duplicate entry.',
-                ];
-
+                ApiRequest::Add($request);
                 return response()->json($response, 409);
             }
             return null; // Let the default exception handler handle it
