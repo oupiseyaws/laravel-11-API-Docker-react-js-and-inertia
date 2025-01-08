@@ -42,7 +42,7 @@
 
 
 39- Introduction
-2- Consolidating State Logic with a Reducer
+40- Consolidating State Logic with a Reducer
 3- Creating Complex Actions
 4- Exercise- Working with Reducers
 5- Sharing State using React Context
@@ -65,6 +65,7 @@
 22- Exercise- Setting Up a Zustand Store
 23- Exercise- Removing Props
 24- Discussion- Building Reusable Components
+
 1- Introduction
 2- Setting Up Routing
 3- Navigation
@@ -76,6 +77,7 @@
 9- Handling Errors
 10- Private Routes
 11- Layout Routes
+
 12- Part Two- Project Work
 13- Exercise- Setting Up Routing
 14- Exercise- Handling Errors
@@ -89,7 +91,7 @@
 22- Exercise- Fixing the NavBar
 23- Exercise- Refactoring Entities
 
-material 
+material
 
 https://github.com/mosh-hamedani/react-course-part2-starter
 https://github.com/mosh-hamedani/react-course-part2-finish

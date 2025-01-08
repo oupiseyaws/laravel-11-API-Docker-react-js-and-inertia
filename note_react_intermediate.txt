@@ -49,3 +49,29 @@ PART 2 :  Mutating data
     - When the network is reconnected
     - When a Component is mounted
     - When the window is refocused
+
+* Next
+    - Creating mutations
+    - Handing mutation errors
+    - Implemention optimistic updates
+    - Create custom mutation hooks
+    - Building services for querying/mutation data
+
+* Application Layers
+    - Components    => TodoFrom, TodoList
+    - Custom Hook   => useTodos,useAddTodo
+    - HTTP Service  => todoService
+    - API Client    => APIClient
+
+API_KEY_GAME=f8e3607080424c63a12e70d9dc506617
+ - Genres => https://api.rawg.io/api/genres?key=f8e3607080424c63a12e70d9dc506617
+ - Game   => https://api.rawg.io/api/games?key=f8e3607080424c63a12e70d9dc506617
+ - Platform => https://api.rawg.io/api/platforms?key=f8e3607080424c63a12e70d9dc506617
+ - Platform parent =>  https://api.rawg.io/api/platforms/lists/parents?key=f8e3607080424c63a12e70d9dc506617
+
+*** Global State Management ***
+    - Consolidating state logic with a Reducer
+    - Sharing data using React context
+    - When to use React context
+    - React Context vs Redux
+    - Managing application state using Zustand
