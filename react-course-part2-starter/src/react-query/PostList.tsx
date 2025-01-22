@@ -45,7 +45,7 @@ const PostList = () => {
         onClick={() => fetchNextPage()}
         disabled={isFetchingNextPage}
       >
-        {isFetchingNextPage ? "Loading More..." : "Load More"}
+        {isFetchingNextPage ? "Loading..." : "Load More"}
       </button>
     </>
   );
