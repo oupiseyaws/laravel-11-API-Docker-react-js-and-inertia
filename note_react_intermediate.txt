@@ -69,6 +69,7 @@ API_KEY_GAME=f8e3607080424c63a12e70d9dc506617
  - Platform => https://api.rawg.io/api/platforms?key=f8e3607080424c63a12e70d9dc506617
  - Platform parent =>  https://api.rawg.io/api/platforms/lists/parents?key=f8e3607080424c63a12e70d9dc506617
 
+video 39
 *** Global State Management ***
     - Consolidating state logic with a Reducer
     - Sharing data using React context
