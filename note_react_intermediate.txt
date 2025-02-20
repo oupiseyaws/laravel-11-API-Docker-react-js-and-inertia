@@ -75,3 +75,11 @@ API_KEY_GAME=f8e3607080424c63a12e70d9dc506617
     - When to use React context
     - React Context vs Redux
     - Managing application state using Zustand
+
+
++ video 20 Mutation data
++ video 27 Understanding Application Layers
+    - Components    => TodoFrom, TodoList
+    - Custom Hook   => useTodos,useAddTodo
+    - HTTP Service  => todoService
+    - API Client    => APIClient

@@ -10,13 +10,6 @@ const TodoList = () => {
   return (
     // add select element for user
     <>
-      <select className="from-select mb-3">
-        <option value=""></option>
-        <option value="1">User 1</option>
-        <option value="2">User 2</option>
-        <option value="3">User 3</option>
-      </select>
-
       <ul className="list-group">
         {todos?.map((todo) => (
           <li key={todo.id} className="list-group-item">
