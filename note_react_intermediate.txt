@@ -69,7 +69,17 @@ API_KEY_GAME=f8e3607080424c63a12e70d9dc506617
  - Platform => https://api.rawg.io/api/platforms?key=f8e3607080424c63a12e70d9dc506617
  - Platform parent =>  https://api.rawg.io/api/platforms/lists/parents?key=f8e3607080424c63a12e70d9dc506617
 
-video 39
++ video 20 Mutation data
++ video 27 Understanding Application Layers
+    - Components    => TodoFrom, TodoList
+    - Custom Hook   => useTodos,useAddTodo
+    - HTTP Service  => todoService
+    - API Client    => APIClient
++ video 34 implementing infinite queries
+    https://api.rawg.io/docs/#operation/games_list => api doc games
++video35 npm i react-infinite-scroll-component@6.1
+
++ video 39
 *** Global State Management ***
     - Consolidating state logic with a Reducer
     - Sharing data using React context
@@ -77,10 +87,9 @@ video 39
     - React Context vs Redux
     - Managing application state using Zustand
 
++ video 40 
+    Reduce => a function that allows us to centralize state updates in component.
 
-+ video 20 Mutation data
-+ video 27 Understanding Application Layers
-    - Components    => TodoFrom, TodoList
-    - Custom Hook   => useTodos,useAddTodo
-    - HTTP Service  => todoService
-    - API Client    => APIClient
++ video 43 Redux
+
++ video 61 

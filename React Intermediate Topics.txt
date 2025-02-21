@@ -60,13 +60,14 @@
 17- Exercise- Working with Zustand
 18- Preventing Unnecessary Renders with Selectors
 19- Inspecting Stores with Zustand DevTools
-20- Part Two- Project Work
+
+58 - 20- Part Two- Project Work
 21- Exercise- Picking the Right State Management Solution
 22- Exercise- Setting Up a Zustand Store
 23- Exercise- Removing Props
 24- Discussion- Building Reusable Components
 
-1- Introduction
+63 - 1 - Introduction
 2- Setting Up Routing
 3- Navigation
 4- Passing Data with Route Parameters
