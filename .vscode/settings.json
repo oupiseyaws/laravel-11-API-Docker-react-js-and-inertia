@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["chakra", "metacritic", "Zustand"]
+  "cSpell.words": ["chakra", "metacritic", "Zustand"],
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
