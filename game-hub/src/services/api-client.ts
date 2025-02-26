@@ -28,6 +28,14 @@ class APIClient<T> {
         return res.data;
       });
   }
+
+  get = (id: number|string) => {
+    return axiosInstance
+      .get<T>(`${this.endpoint}/${id}`)
+      .then((res) => {
+        return res.data;
+      });
+  }
 }
 
 export default APIClient;
