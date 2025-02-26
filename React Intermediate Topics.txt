@@ -79,7 +79,7 @@
 10- Private Routes
 11- Layout Routes
 
-12- Part Two- Project Work
+74 -12- Part Two- Project Work
 13- Exercise- Setting Up Routing
 14- Exercise- Handling Errors
 15- Exercise- Fetching a Game

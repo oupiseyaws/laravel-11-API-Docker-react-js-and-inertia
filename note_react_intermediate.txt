@@ -92,4 +92,14 @@ API_KEY_GAME=f8e3607080424c63a12e70d9dc506617
 
 + video 43 Redux
 
-+ video 61 
++ video 61 set up Zustand
+
++ video 74 you will Learn
+    - Setting up routes
+    - Handing errors
+    - Navigation between pages
+    - Dynamic routes
+    - Nested routes
+    - Private routes
+
+
